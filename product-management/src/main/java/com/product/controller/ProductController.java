@@ -3,8 +3,10 @@ package com.product.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -50,9 +52,35 @@ public class ProductController {
 	}
 
 	// Delete the product
-	@DeleteMapping("/delete/{productId}")
+	@DeleteMapping("delete/{productId}")
 	public void deleteProduct(@PathVariable("productId") Long productId) {
-         productService.deleteProduct(productId);
+       productService.deleteProduct(productId);
 	}
-
+	
+	//Searching Product By ProductName
+	@GetMapping(path= "/searchbyname/{productName}")
+	public ResponseEntity<List<Product>> searchByName(@PathVariable String productName){
+		
+		List<Product> product= productService.searchByName(productName);
+		
+		return new ResponseEntity<List<Product>>(product, HttpStatus.OK);			
+	}
+	
+	//Searching Product By Keyword
+	@GetMapping(path= "/searchbykeyword/{productName}")
+	public ResponseEntity<List<Product>> searchByKeyword(@PathVariable String productName) {
+				
+		List<Product> product= productService.searchByKeyword(productName);
+					
+		return new ResponseEntity<List<Product>>(product, HttpStatus.OK);	
+		}
+	
+	//Filter by price
+	@GetMapping(path= "/filter/{price}")
+	public ResponseEntity<List<Product>> filterByPrice(@PathVariable("price") double price){
+				
+				List<Product> product= productService.filterByPrice(price);
+				
+				return new ResponseEntity<List<Product>>(product, HttpStatus.OK);			
+			}
 }

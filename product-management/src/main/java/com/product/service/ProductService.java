@@ -19,5 +19,14 @@ public interface ProductService {
 	
 	//Update the product
 	public Product  editProduct(Product product);
+	
+	//Delete the product
+	 void deleteProduct(long productId);
+	 
+	 List<Product> searchByName(String productName);
+
+		List<Product> searchByKeyword(String productName);
+		
+		List<Product> filterByPrice(double price);
 
 }

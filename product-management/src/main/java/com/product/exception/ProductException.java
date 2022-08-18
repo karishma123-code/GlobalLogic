@@ -31,5 +31,9 @@ public class ProductException extends RuntimeException {
 	public String getfieldValue() {
 		return (String) fieldValue;
 	}
+	
+	public ProductException(String message) {
+		super(message);
+	}
 
 }
