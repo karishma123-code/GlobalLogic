@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Employee Data</title>
+</head>
+
+<body>
+	<h1>This is employee Page</h1>
+	<Form method="GET" action="/employee/all">
+
+
+		<button type="submit">
+			Click here to view Employee
+		</button>
+	</Form>
+	<br> <br>
+	<form method="POST" action="/employee/" enctype="multipart/form-data">
+		<div class="form-group mt-3">
+			<label for="file">Select a CSV file</label>
+			<input type="file" name="file" class="form-control-file" id="file" accept=".csv">
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+	<!-- <form action="/employee/" method="post">
+        <label for="fileCSV">Choose CSV file: </label>
+        <input type="file" name ="fileCSV" id="fileName" required>
+        <p>
+
+        </p>
+        <button type="submit">upload</button>
+
+    </form> -->
+</body>
+
+</html>
